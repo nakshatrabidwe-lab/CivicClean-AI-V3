@@ -1,7 +1,6 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import styles from './LandingPage.module.css'
-import bgImage from './swachh-bg.jpeg'
 
 export default function LandingPage() {
   const navigate = useNavigate()
@@ -13,7 +12,7 @@ export default function LandingPage() {
         position: 'relative', 
         width: '100vw',
         minHeight: '100vh',
-        backgroundImage: `url(${bgImage})`,
+        backgroundImage: "url('/swachh-bg.jpeg')",
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat',
