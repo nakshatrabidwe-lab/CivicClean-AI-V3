@@ -6,53 +6,55 @@ export default function LandingPage() {
   const navigate = useNavigate()
 
   return (
-    <main 
-      className={styles.root} 
-      style={{ 
-        position: 'relative', 
-        width: '100vw',
-        minHeight: '100vh',
-        backgroundImage: "url('/swachh-bg.jpeg')",
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat',
-        overflow: 'hidden'
-      }}
-    >
-      {/* Container for transparent clickable hot-spots matching the two cards */}
-      <div style={{
-        position: 'absolute',
-        bottom: '8%',
-        left: '50%',
-        transform: 'translateX(-50%)',
-        display: 'flex',
-        gap: '2rem',
-        zIndex: 10
-      }}>
-        {/* Invisible Clickable Area over Citizen Portal */}
-        <div 
-          onClick={() => navigate('/citizen')}
-          style={{
-            width: '280px',
-            height: '240px',
-            cursor: 'pointer',
-            borderRadius: '20px'
-          }}
-          title="Enter Citizen Portal"
-        />
+    <main className={styles.root}>
+      {/* Background decoration */}
+      <div className={styles.blob1} aria-hidden />
+      <div className={styles.blob2} aria-hidden />
 
-        {/* Invisible Clickable Area over Municipal Admin */}
-        <div 
-          onClick={() => navigate('/admin')}
-          style={{
-            width: '280px',
-            height: '240px',
-            cursor: 'pointer',
-            borderRadius: '20px'
-          }}
-          title="Enter Municipal Admin"
-        />
-      </div>
+      <header className={styles.header}>
+        <div className={styles.logo}>
+          <span className={styles.logoIcon}>♻</span>
+          <span className={styles.logoText}>CivicClean <em>AI</em></span>
+        </div>
+      </header>
+
+      <section className={styles.hero}>
+        <h1 className={styles.headline}>
+          Cleaner cities,<br />smarter governance.
+        </h1>
+        <p className={styles.sub}>
+          AI-powered civic issue reporting for citizens and intelligent
+          task management for municipal teams — all in one platform.
+        </p>
+
+        <div className={styles.cards}>
+          {/* Citizen card */}
+          <button
+            className={`${styles.card} ${styles.cardCitizen}`}
+            onClick={() => navigate('/citizen')}
+          >
+            <span className={styles.cardIcon}>🏘️</span>
+            <span className={styles.cardTitle}>Citizen Portal</span>
+            <span className={styles.cardDesc}>
+              Report issues, track resolutions,<br />and engage with your city.
+            </span>
+            <span className={styles.cardCta}>Enter Portal →</span>
+          </button>
+
+          {/* Admin card */}
+          <button
+            className={`${styles.card} ${styles.cardAdmin}`}
+            onClick={() => navigate('/admin')}
+          >
+            <span className={styles.cardIcon}>🏛️</span>
+            <span className={styles.cardTitle}>Municipal Admin</span>
+            <span className={styles.cardDesc}>
+              Manage reports, dispatch crews,<br />and monitor city health.
+            </span>
+            <span className={styles.cardCta}>Enter Dashboard →</span>
+          </button>
+        </div>
+      </section>
     </main>
   )
 }
